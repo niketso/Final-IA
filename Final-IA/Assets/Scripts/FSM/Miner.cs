@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class Miner : MonoBehaviour
 {
@@ -6,42 +7,46 @@ public class Miner : MonoBehaviour
     [SerializeField] private int capacity = 0;
     //How many per action it can mine.
     [SerializeField] private int efficiency = 0;
-    [SerializeField] public float speed;
-    public int currentGold;
-
-    private void Start()
-    {
-        currentGold = 0;
-    }
+    public int currentGold = 0;
 
     public bool CanMine(Mine currentMine)
     {
         
         if (currentMine)
         {
-            Debug.Log("Miner::CanMine(); true");
+            //Debug.Log("Miner::CanMine(); true");
             return true;
         }
 
-        Debug.Log("Miner::CanMine(); false");
+       // Debug.Log("Miner::CanMine(); false");
         return false;
         
     }
-    public bool Mine(Mine currentMine)
+
+    public void Mine(Mine currentMine)
     {
-        if (capacity < currentGold)
+        if (HasCapacity() || currentMine.IsActive())
         {
-            currentMine.ExtractGold(efficiency);
-            currentGold = efficiency;
+            if (currentMine.ExtractGold(efficiency))
+            {
+                currentGold += efficiency;                           
+            } 
+        }                
+    }
+
+    public bool HasCapacity()
+    {
+        if (capacity > currentGold)
+        {
+            Debug.Log("Miner::HasCapacity().Can carry.");
             return true;
         }
         else
         {
-            Debug.Log("Miner::Mine().Already full.");
+            Debug.Log("Miner::HasCapacity().Already full.");
             return false;
         }
     }
-
     public bool DepositGold(Deposit deposit)
     {
         if (deposit)
@@ -63,6 +68,11 @@ public class Miner : MonoBehaviour
             return false;
         }
         
+    }
+
+    public void SetDestination(Vector3 destination)
+    {
+        gameObject.GetComponent<NavMeshAgent>().SetDestination(destination);
     }
 
     

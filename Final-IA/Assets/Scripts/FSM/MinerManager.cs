@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public enum MinerStates {Idle, MovingTM, Mining, CarringGold, DepositingGold}
-
 public class MinerManager : StateMachine
 {
     [SerializeField] public Miner miner;
@@ -15,6 +13,11 @@ public class MinerManager : StateMachine
         SetState(new IdleState(this));
     }
 
+    private void Update()
+    {
+        UpdateState();
+      
+    }
     public void GetCurrentMine()
     {
         for (int i = 0; i < mines.Length; i++)

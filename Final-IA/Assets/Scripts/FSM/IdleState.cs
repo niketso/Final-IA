@@ -20,14 +20,18 @@ public class IdleState : State
         }
         else
         {
-            Debug.Log("IdleState::Start(); Unable to Mine");
+            Debug.Log("IdleState::Start(); Unable to Mine");           
         }
+        return base.Start();
+    }
 
-        /*if (MinerManager.mines.Length == 0)
+    public override IEnumerator Update()
+    {
+
+        if (!MinerManager.currentMine)
         {
             Debug.Log("IdleState::Update(); No Mines Left, just rest");
-        }*/
-
-        return base.Start();
+        }
+        return base.Update();
     }
 }

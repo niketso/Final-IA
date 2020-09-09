@@ -16,19 +16,12 @@ public class CarringGoldState : State
 
     public void MoveTD(Miner miner, Deposit deposit)
     {
-        if (miner && deposit)
+        if (deposit)
         {
-            miner.transform.position = Vector3.Lerp(miner.transform.position, deposit.transform.position, miner.speed * Time.deltaTime);
             Debug.Log("CarringGoldState::MoveTD. Moving To Deposit");
+            //miner.transform.position = Vector3.Lerp(miner.transform.position, deposit.transform.position, miner.speed * Time.deltaTime);
+            miner.SetDestination(deposit.transform.position);
+          
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Miner"))
-        {
-            MinerManager.SetState(new DepositingGoldState(MinerManager));
-            Debug.Log("CarringGoldState::OTE. Arrived to deposit");
-        }
-    }
+    } 
 }

@@ -6,6 +6,7 @@ public class Deposit : MonoBehaviour
 {
     [SerializeField] private int maxCapacity = 0;
     private int currentGold = 0;
+    [SerializeField] public MinerManager minerManager;
 
     public bool DepositGold(Miner miner)
     {
@@ -20,6 +21,15 @@ public class Deposit : MonoBehaviour
         {
             Debug.Log("Deposit::DepositGold. Not enought capacity to store in the deposit");
             return false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Deposit::OTE. Arrived to Deposit");
+            minerManager.SetState(new DepositingGoldState(minerManager));
         }
     }
 }
