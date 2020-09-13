@@ -18,8 +18,7 @@ public class CarringGoldState : State
     {
         if (deposit)
         {
-            Debug.Log("CarringGoldState::MoveTD. Moving To Deposit");
-            //miner.transform.position = Vector3.Lerp(miner.transform.position, deposit.transform.position, miner.speed * Time.deltaTime);
+            //Debug.Log("CarringGoldState::MoveTD. Moving To Deposit");
             miner.SetDestination(deposit.transform.position);
           
         }

@@ -15,12 +15,12 @@ public class IdleState : State
 
         if (MinerManager.miner.CanMine(MinerManager.currentMine))
         {
-            Debug.Log("IdleState::Start(); Able to mine");
+           // Debug.Log("IdleState::Start(); Able to mine");
             MinerManager.SetState(new MovingTMState(MinerManager));
         }
         else
         {
-            Debug.Log("IdleState::Start(); Unable to Mine");           
+            //Debug.Log("IdleState::Start(); Unable to Mine");           
         }
         return base.Start();
     }
@@ -28,9 +28,9 @@ public class IdleState : State
     public override IEnumerator Update()
     {
 
-        if (!MinerManager.currentMine)
+        if (!MinerManager.currentMine.IsActive())
         {
-            Debug.Log("IdleState::Update(); No Mines Left, just rest");
+           // Debug.Log("IdleState::Update(); No Mines Left, just rest");
         }
         return base.Update();
     }

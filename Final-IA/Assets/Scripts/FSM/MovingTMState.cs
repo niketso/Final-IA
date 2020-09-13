@@ -17,9 +17,7 @@ public class MovingTMState : State
 
     public void MoveTM(Miner miner, Mine currentMine)
     {
-       // miner.transform.position = Vector3.Lerp(currentMine.transform.position,miner.transform.position,miner.speed * Time.deltaTime);
+        //Debug.Log("MovingTMState::MoveTM. Moving To Mine");            
         miner.SetDestination(currentMine.transform.position);
-         Debug.Log("MovingTMState::MoveTM. Moving To Mine");
-         //MinerManager.SetState(new DepositingGoldState(MinerManager));      
     }
 }

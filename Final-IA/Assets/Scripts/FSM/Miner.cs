@@ -38,12 +38,12 @@ public class Miner : MonoBehaviour
     {
         if (capacity > currentGold)
         {
-            Debug.Log("Miner::HasCapacity().Can carry.");
+            //Debug.Log("Miner::HasCapacity().Can carry.");
             return true;
         }
         else
         {
-            Debug.Log("Miner::HasCapacity().Already full.");
+            //Debug.Log("Miner::HasCapacity().Already full.");
             return false;
         }
     }
@@ -53,12 +53,12 @@ public class Miner : MonoBehaviour
         {
             if (deposit.DepositGold(this))
             {
-                Debug.Log("Miner::Deposit. Depositing");
+                //Debug.Log("Miner::Deposit. Depositing");
                 return true;
             }
             else
             {
-                Debug.Log("Miner::Deposit. Couldn't deposit.");
+                //Debug.Log("Miner::Deposit. Couldn't deposit.");
                 return false;
             }
 

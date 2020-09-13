@@ -564,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCapacity: 500
+  currentGold: 0
   minerManager: {fileID: 2007542348}
 --- !u!54 &532987153
 Rigidbody:
@@ -711,7 +712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80c149deca12d847a57845277c53ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacity: 100
+  capacity: 50
   efficiency: 1
   currentGold: 0
 --- !u!1 &1247309565
@@ -913,7 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5db68faa270a6479730cd898915b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacity: 100
+  capacity: 300
   minerManager: {fileID: 2007542348}
 --- !u!54 &1437418609
 Rigidbody:
@@ -1038,7 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5db68faa270a6479730cd898915b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacity: 100
+  capacity: 60
   minerManager: {fileID: 2007542348}
 --- !u!54 &1813006652
 Rigidbody:

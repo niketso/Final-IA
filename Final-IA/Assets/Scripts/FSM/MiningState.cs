@@ -13,15 +13,13 @@ public class MiningState : State
     {
 
         MinerManager.miner.Mine(MinerManager.currentMine);
-        
-        Debug.Log("MiningState::Start(). Start mining");
-       
+                      
         return base.Start();
     }
 
     public override IEnumerator Update()
     {
-        if (!MinerManager.miner.HasCapacity())
+        if (!MinerManager.miner.HasCapacity() || !MinerManager.currentMine.IsActive())
         {
             MinerManager.SetState(new CarringGoldState(MinerManager));
         }

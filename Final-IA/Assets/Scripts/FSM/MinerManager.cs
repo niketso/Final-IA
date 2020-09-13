@@ -25,13 +25,7 @@ public class MinerManager : StateMachine
             if (mines[i].IsActive())
             {
                 currentMine = mines[i];
-            }
-            else
-            {
-                mines[i].DeactivateMine();
-                Debug.Log("MinerManager::GetCurrentMine; Deactivating Mine");
-            }
+            }            
         }
     }
-
 }

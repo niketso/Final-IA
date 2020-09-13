@@ -11,11 +11,10 @@ public class DepositingGoldState : State
 
     public override IEnumerator Start()
     {
-        Debug.Log("DeposittingGoldState::Start. Depositing");
+        //Debug.Log("DeposittingGoldState::Start. Depositing");
 
         if (MinerManager.miner.DepositGold(MinerManager.deposit))
-           {
-            
+           {            
             MinerManager.SetState(new IdleState(MinerManager));
            } 
         
@@ -25,6 +24,11 @@ public class DepositingGoldState : State
     public override IEnumerator Update()
     {
         MinerManager.GetCurrentMine();
+
+        if (!MinerManager.currentMine.IsActive())
+        {
+            MinerManager.SetState(new IdleState(MinerManager));
+        }
 
         return base.Update();
     }
